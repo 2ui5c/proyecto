@@ -1,0 +1,933 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+}
+
+main {
+    background-color: white;
+}
+/* Composición de los grids */
+
+.grid {
+    display: grid;
+    grid-template-areas: 
+        "header nav"
+        "main main"
+        "footer footer";
+    grid-template-columns: 40% 60%;
+    grid-template-rows: min-content auto min-content;
+    grid-row: sticky;
+}
+
+/* Header */
+
+.header {
+    align-self: stretch;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    grid-area: header;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:black;
+    padding: 10px 10%;
+    color: white;
+    text-transform: uppercase;
+}
+
+.contenedorTitulo {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    height: 90px;
+}
+
+.contenedorTitulo img {
+    width: 60px;
+    transition: .3s all;
+}
+
+/* efecto hover en la imagen del logo */
+.contenedorTitulo img:hover {
+    transform: scale(120%,120%);
+}
+
+.contenedorTitulo h1 {
+    color:white;
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+/* modificador para hacer mas delgada la parte de "impresiones" */
+.titulo__impresiones {
+    font-weight: 300;
+}
+
+/* NAV */
+
+.nav {
+    align-self: stretch;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 20px;
+}
+
+.navbar {
+    flex: 1;
+    grid-area: nav;
+    background-color: black;
+    border: rgb(255, 0, 0) solid 2px;
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 40px 0px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgb(255, 0, 0);
+}
+
+.navbar a {
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    transition: .5s all;
+}
+
+/* link cuando pasa el mouse sobre */
+
+.navbar a:hover {
+    background-color:rgba(255, 255, 255, 0.199);
+}
+
+.linkActive {
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: .4s background-color;
+    font-weight: 700;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.199);
+}
+
+/*  FIN DEL NAV */
+
+/* MAIN */
+
+.main {
+    background-color: ffff;
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+}
+
+/* MAIN CONTACTO */
+
+.main__contacto {
+    padding-top: 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.contacto__titulo h1{
+    margin-top: 0.7rem;
+    line-height: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.formulario__form {
+    padding: 20px;
+    width: 60vw;
+}
+
+.formulario__form fieldset {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 90px 0px;
+    border: solid 2px red;
+    background: rgb(245,245,245);
+    background: linear-gradient(45deg, rgba(245,245,245,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.formulario__form label {
+    width: 80%;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.formulario__campo {
+    margin-top: 5px;
+    width: 80%;
+    align-self: center;
+    border: rgba(255, 0, 0, 0.5) dotted 1px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.formulario__campo:focus {
+    border: red solid 2px;
+}
+
+#tipoDeMensaje {
+    width: 80%;
+    align-self: center;
+    border: rgba(255, 0, 0, 0.5) dotted 1px;
+    padding: 2px;
+    margin-top: 10px;
+}
+
+.formulario__form fieldset textarea {
+    height: 7rem;
+}
+
+.formulario__botones {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.formulario__boton {
+    background-color: red;
+    border: 3px solid;
+    border-color: red;
+    border-radius: 20px 0px;
+    box-shadow: 0 0 2px rgb(255, 0, 0);
+    color: white;
+    text-transform: uppercase;
+    margin: 5px;
+    height: 30px;
+    width: 25%;
+    transition: 0.5s;
+}
+
+.formulario__boton:hover {
+background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
+}
+
+/* FIN MAIN CONTACTO */
+
+/* MAIN PRODUCTO */
+
+.main__producto {
+    display: flex;
+    flex-direction: column;
+    width: 99vw;
+    align-items: center;
+    justify-self: auto;
+    padding: 1rem 2px;
+}
+
+.main__producto h1 {
+    margin-top: 0.7rem;
+    line-height: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.titulo__producto {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.titulo__producto h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.titulo__producto p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.titulo__producto p a {
+    text-decoration: none;
+    color: red;
+}
+
+.titulo__producto p a:hover {
+    text-decoration: underline;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.055);
+}
+
+.productos__grilla {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.productos__contenedor {
+    display: flex;
+    width: 450px;
+    flex-direction: column;
+    background-color: rgb(177, 177, 177);
+    box-shadow: 0 0 2px rgb(255, 0, 0);
+    border-radius: 40px 0px;
+    overflow: hidden;
+    margin: 0.3vw;   
+}
+
+.producto__titulo {
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    background-image: linear-gradient(to top, rgb(204, 2, 2), rgb(250, 7, 7));
+    padding: 0.5rem;
+}
+
+.producto__imagen {
+    overflow: hidden;
+}
+
+.producto__imagen img {
+    width: 100%;
+    transition: 1.5s;
+}
+
+.producto__imagen img:hover {
+    transform: scale(130%);
+}
+
+.producto__descripcion {
+    background-color: white;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+    margin: 10px;
+}
+
+/* MAIN INDEX */
+
+.index__links {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 80vw;
+    margin-left: 10vw;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.index__links a {
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(255, 0, 0, 0.75));
+}
+
+.index__productos {
+    display: flex;
+    height: 40vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(../images/indeximages/productos.jpg);
+    background-size:cover;
+}
+
+.index__nosotros {
+    display: flex;
+    height: 40vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(../images/indeximages/nosotros.jpg);
+    background-size: cover;
+}
+
+.index__comoComprar {
+    display: flex;
+    height: 40vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(../images/indeximages/comocomprar.jpg);
+    background-size: cover;
+}
+
+.index__contacto {
+    display: flex;
+    height: 40vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(../images/indeximages/contacto.jpg);
+    background-size: cover;
+}
+
+
+/* MAIN COMO COMPRAR */
+
+.main {
+    background-color: ffff;
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+.main h1 {
+    margin-top: 0.7rem;
+    line-height: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.main p {
+    margin-top: 0.7rem;
+    line-height: 1.5rem;
+    text-align: center;
+}
+
+.comoComprar {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    border: 3px solid black;
+    margin-left: 10vw;
+    width: fit-content;
+    border-radius: 100px 0px;
+    overflow: hidden;
+    gap: 5px;
+}
+
+.comoComprar p {
+    margin-top: 0.7rem;
+    line-height: 3rem;
+}
+
+.comoComprar__1 {
+    padding: 3vh 3vw;
+    width: 80vw;
+    display: flex;
+    height: 20vh;
+    font-size: 2rem;
+    background-image: linear-gradient(to left, yellow, white);
+    align-items: center;
+}
+
+.comoComprar__1 p, .comoComprar__3 p {
+    text-align: right;
+}
+
+.comoComprar__2 {
+    padding: 3vh 3vw;
+    width: 80vw;
+    display: flex;
+    flex-flow: row-reverse;
+    height: 20vh;
+    font-size: 2rem;
+    background-image: linear-gradient(to right, greenyellow, white);
+    align-items: center;
+}
+
+.comoComprar__3 {
+    padding: 3vh 3vw;
+    width: 80vw;
+    display: flex;
+    height: 20vh;
+    font-size: 2rem;
+    background-image: linear-gradient(to left, violet, white);
+    align-items: center;
+    text-align: right;
+}
+
+.comoComprar__4 {
+    padding: 3vh 3vw;
+    width: 80vw;
+    display: flex;
+    flex-flow: row-reverse;
+    height: 20vh;
+    font-size: 2rem;
+    background-image: linear-gradient(to right, blue, white);
+    align-items: center;
+}
+
+.comoComprar__num {
+    font-size: 6rem;
+    text-align: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.faq {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 10vw;
+    width: 80vw;
+    justify-content: center;
+}
+
+.faq h2 {
+    background-color: red;
+    text-align: center;
+    border-radius: 30px 0px;
+    line-height: 2.5rem;
+}
+
+.faq__pregunta {
+    color: red;
+    font-weight: 700;
+    margin-top: 0.7rem;
+}
+
+.faq__respuesta {
+    font-weight: 400;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: black;
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.container__footer {
+    display: flex;
+    width: min-content;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer__elemento {
+    padding: 15px;
+    justify-content: center;
+    list-style: none;
+}
+
+.footer__link {
+    text-decoration: none;
+    color: white;
+    font-size: 5px;
+}
+
+.footer__link i {
+    font-size: 25px;
+    transition: all 1s;
+}
+
+.footer__link i:hover {
+    font-size: 30px;
+    transform: rotate(720deg);
+}
+
+.footer p {
+    color: red;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.formulario {
+    color: white;
+    font-size: 16px;
+    display: flex;
+    height: auto;
+}
+
+.formulario legend {
+    text-align: center;
+    background-color: black;
+    padding: 2px;
+}
+
+.formulario fieldset {
+    display: flex;
+    padding: 15px;
+    width: 30vw;
+    height: min-content;
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+    border: rgb(255, 0, 0) solid 1px;
+    border-radius: 45px 0px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer__campo {
+    width: 90%;
+    margin-top: 2px;
+    padding: 2px;
+}
+
+.footer__boton {
+    background-color: black;
+    border: solid red 1px;
+    color: white;
+    width: 60%;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 30px 0px;
+    transition: .5s all;
+    text-transform: uppercase;
+}
+
+.footer__boton:hover {
+    background-color: rgba(255, 255, 255, 0.199);
+}
+
+/* Fin del FOOTER */
+
+/* Main Parallax */
+
+.parallas, .mainNosotros, .texto{margin:0 auto;}
+
+.parallax{
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size:  cover;
+	height:35rem;
+	max-width: 100%;
+	position: relative
+}
+
+.texto-interior {
+	color:#fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px red solid;
+    border-radius: 40px 0;
+	font-size: 2rem;
+	font-weight: bold;
+	left: 20%;
+	position: absolute;
+	text-align: center;
+	top:40%;
+	width: 60%
+}
+
+.img-uno{background-image: url(../images/parallax/parallax1.jpg)}
+
+.img-dos{background-image:url(../images/parallax/parallax2.png)}
+
+
+.texto{
+	padding:5%;
+	width: 90%
+}
+
+/* modificadores de la barra de scroll */
+
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: black;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 20px;
+}
+
+/* fin modificadores de la barra de scroll */
+
+@media (max-width: 412px) {
+    .grid {
+        display: grid;
+        grid-template-areas: 
+            "header"
+            "nav"
+            "main"
+            "footer";
+        grid-template-columns: 100%;
+        grid-template-rows: min-content min-content auto min-content;
+        grid-row: sticky;
+    }
+    .nav {
+        align-self: stretch;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        padding: 5px;
+    }
+    .navbar {
+        flex: 1;
+        grid-area: nav;
+        background-color: black;
+        border: rgb(255, 0, 0) solid 0px;
+        display: flex;
+        flex-direction: colums;
+        height: auto;
+        width: 90%;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 30px 0px;
+        overflow: hidden;
+        box-shadow: 0 0 0px rgb(255, 0, 0);
+    }
+    .navbar a {
+        flex:1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.7rem;
+        height: 100%;
+        text-decoration: none;
+        color: white;
+        transition: .5s all;
+        text-align: center;
+    }
+    
+    /* link cuando pasa el mouse sobre */
+    
+    .navbar a:focus {
+        background-color:rgba(255, 255, 255, 0.199);
+    }
+    
+    .linkActive {
+        flex:1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        transition: .4s background-color;
+        font-weight: 700;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.199);
+    }
+
+    .header {
+        position: relative;
+        align-self: stretch;
+        z-index: 2;
+        grid-area: header;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color:black;
+        padding: 10px 10%;
+        color: white;
+        text-transform: uppercase;
+    }
+    
+    .contenedorTitulo {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 20px;
+        height: 90px;
+    }
+    
+    .contenedorTitulo img {
+        width: 50px;
+        transition: .3s all;
+    }
+    
+    /* efecto hover en la imagen del logo */
+    .contenedorTitulo img:hover {
+        transform: scale(120%,120%);
+    }
+    
+    .contenedorTitulo h1 {
+        color:white;
+        font-weight: 900;
+        font-size: 2rem;
+    }
+    
+    /* modificador para hacer mas delgada la parte de "impresiones" */
+    .titulo__impresiones {
+        font-weight: 300;
+        font-size: 1.5rem;
+    }
+    
+    /* FOOTER */
+    .footer {
+        background-color: black;
+        grid-area: footer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    
+    .container__footer {
+        display: flex;
+        width: min-content;
+        height: auto;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .footer__elemento {
+        padding: 5px 7px;
+        justify-content: center;
+        list-style: none;
+    }
+    
+    .footer__link {
+        text-decoration: none;
+        color: white;
+        font-size: 5px;
+    }
+    
+    .footer__link i {
+        font-size: 25px;
+        transition: all 1s;
+    }
+    
+    .footer__link i:hover {
+        font-size: 30px;
+        transform: rotate(720deg);
+    }
+    
+    .footer p {
+        color: red;
+        font-weight: 400;
+        font-size: 14px;
+    }
+    
+    .formulario {
+        color: white;
+        font-size: 16px;
+        display: flex;
+        height: auto;
+    }
+    
+    .formulario legend {
+        text-align: center;
+        background-color: black;
+        padding: 2px;
+    }
+    
+    .formulario fieldset {
+        display: flex;
+        padding: 15px;
+        width: 30vw;
+        height: min-content;
+        box-shadow: 0 0 0px rgb(255, 0, 0);
+        border: rgb(255, 0, 0) solid 0px;
+        border-radius: 45px 0px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .footer__campo {
+        width: 90%;
+        margin-top: 2px;
+        padding: 2px;
+    }
+    
+    .footer__boton {
+        background-color: black;
+        border: solid red 1px;
+        color: white;
+        width: 80vw;
+        padding: 5px 10px;
+        margin-top: 10px;
+        border-radius: 0px 0px;
+        transition: .5s all;
+        text-transform: uppercase;
+    }
+    
+    .footer__boton:focus {
+        background-color: rgba(255, 255, 255, 0.199);
+    }
+
+    /* MAIN INDEX */
+
+    .comoComprar p {
+        margin-top: 0.3rem;
+        line-height: 1rem;
+    }
+    
+    .comoComprar__num {
+        font-size: 3rem;
+        text-align: center;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .comoComprar__1 {
+        height: 18vh;
+        font-size: 1.2rem;
+    }
+    
+    .comoComprar__2 {
+        height: 18vh;
+        font-size: 1.2rem;
+    }
+    
+    .comoComprar__3 {
+        height: 18vh;
+        font-size: 1.2rem;
+    }
+    
+    .comoComprar__4 {
+        height: 18vh;
+        font-size: 1.2rem;
+    }
+    /* FIN MAIN */
+    /* CONTACTO */
+    .formulario__form {
+        padding: 10px;
+        width: 90vw;
+    }
+    /* PARALLAX */
+    .texto-interior {
+        color:#fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        border: 2px red solid;
+        border-radius: 40px 0;
+        font-size: 2rem;
+        font-weight: bold;
+        left: 20%;
+        position: absolute;
+        text-align: center;
+        top:40%;
+        width: 70%
+    }
+}
